@@ -12,4 +12,5 @@ Java application to create video from multiple sources made by students at Touro
 
 
 ### Students
+Libby Kenigsberg - https://github.com/lkenigsb \
 Elka Halberstam - https://github.com/elkyhalberstam
