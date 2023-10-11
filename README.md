@@ -10,5 +10,9 @@ Java application to create video from multiple sources made by students at Touro
 [Java TTS](https://www.geeksforgeeks.org/converting-text-speech-java/) - Convert Text to Speech
     [FreeTTS](https://freetts.sourceforge.io/)
 
+[Markdown Tutorial](https://www.markdowntutorial.com/)
+[Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)
+[Draw.io](https://app.diagrams.net/)
+
 
 ### Students
