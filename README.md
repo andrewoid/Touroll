@@ -12,10 +12,12 @@ Java application to create video from multiple sources made by students at Touro
 
 [Markdown Tutorial](https://www.markdowntutorial.com/)\
 [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)\
-[Draw.io](https://app.diagrams.net/)\
+[Draw.io](https://app.diagrams.net/)
 
 
 ### Students
+
+[Meira Cohen](https://www.github.com/mc-student) \
 Emmy Runge, https://github.com/emmyrunge \
 Libby Kenigsberg - https://github.com/lkenigsb \
-Elka Halberstam - https://github.com/elkyhalberstam \
+Elka Halberstam - https://github.com/elkyhalberstam
