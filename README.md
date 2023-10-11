@@ -12,3 +12,5 @@ Java application to create video from multiple sources made by students at Touro
 
 
 ### Students
+
+[Meira Cohen](https://www.github.com/mc-student)
