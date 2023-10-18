@@ -20,4 +20,5 @@ Chana Chambre https://github.com/chanacham \
 [Meira Cohen](https://www.github.com/mc-student) \
 Emmy Runge, https://github.com/emmyrunge \
 Libby Kenigsberg - https://github.com/lkenigsb \
-Elka Halberstam - https://github.com/elkyhalberstam
+Elka Halberstam - https://github.com/elkyhalberstam \
+Elky Schlesinger - https://github.com/ElkySchles
