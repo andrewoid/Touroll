@@ -4,8 +4,8 @@ Java application to create video from multiple sources made by students at Touro
 
 #### Dependencies
 
-[touroll.ffmpeg4j.FFmpegAudio](https://ffmpeg.org/) - Generate video from images and audio\
-[ffmpeg4j](https://github.com/Manevolent/ffmpeg4j) - Java wrapper around touroll.ffmpeg4j.FFmpegAudio\
+[touroll.video.FFmpegAudio](https://ffmpeg.org/) - Generate video from images and audio\
+[ffmpeg4j](https://github.com/Manevolent/ffmpeg4j) - Java wrapper around touroll.video.FFmpegAudio\
 [commonmark-java](https://github.com/commonmark/commonmark-java) - Parse and Render Markdown\
 [Java TTS](https://www.geeksforgeeks.org/converting-text-speech-java/) - Convert Text to Speech\
 [FreeTTS](https://freetts.sourceforge.io/)
@@ -14,8 +14,8 @@ Java application to create video from multiple sources made by students at Touro
 [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)\
 [Draw.io](https://app.diagrams.net/)
 
-
 ### Students
+
 Chana Chambre https://github.com/chanacham \
 [Meira Cohen](https://www.github.com/mc-student) \
 Emmy Runge, https://github.com/emmyrunge \
