@@ -1,3 +1,5 @@
+import com.github.manevolent.ffmpeg4j.FFmpegInput;
+
 public class FFmpeg {
     /*
     Step #1
@@ -9,6 +11,9 @@ public class FFmpeg {
 
     Step #2
     Used this https://sagioto.github.io/maven2gradle/ to convert the maven to gradle dependencies
-    Added to build.gradle with errors
+    Added to build.gradle
+
+    Added maven { url 'https://jitpack.io' } to Repositories
      */
+
 }

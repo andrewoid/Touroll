@@ -7,12 +7,13 @@ version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+    maven { url 'https://jitpack.io' }
 }
 
 dependencies {
+    implementation 'com.github.manevolent:ffmpeg4j:5.1.2-1.5.8-4'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
-    compile 'com.github.manevolent:ffmpeg4j:-SNAPSHOT'
 }
 
 test {
