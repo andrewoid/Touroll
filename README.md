@@ -16,7 +16,7 @@ Java application to create video from multiple sources made by students at Touro
 
 
 ### Students
-
+Chana Chambre https://github.com/chanacham \
 [Meira Cohen](https://www.github.com/mc-student) \
 [Emmy Runge](https://github.com/emmyrunge) \
 [Libby Kenigsberg](https://github.com/lkenigsb) \
