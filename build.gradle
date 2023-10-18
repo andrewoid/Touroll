@@ -12,8 +12,6 @@ repositories {
 
 dependencies {
     implementation 'com.github.manevolent:ffmpeg4j:5.1.2-1.5.8-4'
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
     implementation 'org.commonmark:commonmark:0.17.2'
     implementation 'commons-io:commons-io:2.14.0'
     implementation 'com.google.code.gson:gson:2.10.1'

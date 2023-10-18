@@ -14,14 +14,16 @@ import java.nio.file.StandardOpenOption;
 import java.util.HashMap;
 import java.util.Map;
 
-public class FFmpegj4UnitTest {
+public class Ffmpegj4UnitTest {
     @Test
-    public void transcodeTestFFmpeg() throws Exception {
+    public void transcodeTestFfmpeg() throws Exception {
         Map<String, String> options = new HashMap<>();
         options.put("strict", "experimental");
         Path tempFile = Files.createTempFile("temp-audio", null);
-        FFmpegTargetStream targetStream = FFmpegIO.openChannel(Files.newByteChannel(tempFile, StandardOpenOption.WRITE)).asOutput().open("mp3");
-        try (FFmpegSourceStream sourceStream = FFmpegIO.openInputStream(FFmpegj4UnitTest.class.getResourceAsStream("/testAudio.ogg")).open("ogg")) {
+        FFmpegTargetStream targetStream = FFmpegIO.openChannel(
+                Files.newByteChannel(tempFile, StandardOpenOption.WRITE)).asOutput().open("mp3");
+        try (FFmpegSourceStream sourceStream = FFmpegIO.openInputStream(
+                Ffmpegj4UnitTest.class.getResourceAsStream("/testAudio.ogg")).open("ogg")) {
             sourceStream.registerStreams();
 
             AudioSourceSubstream mediaSourceSubstream = (AudioSourceSubstream) sourceStream.getSubstreams().get(0);
