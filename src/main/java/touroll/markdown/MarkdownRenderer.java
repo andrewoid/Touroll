@@ -1,19 +1,17 @@
-package commonmark;
+package touroll.markdown;
 
 import org.commonmark.node.*;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
-import org.commonmark.Extension.*;
 import org.apache.commons.io.FileUtils;
 import java.io.File;
 import java.io.IOException;
-import java.nio.charset.Charset;
 
-public class Renderer
+public class MarkdownRenderer
 {
     Parser parser;
     HtmlRenderer renderer;
-    public Renderer()
+    public MarkdownRenderer()
     {
         parser = Parser.builder().build();
         renderer = HtmlRenderer.builder().build();
@@ -25,10 +23,9 @@ public class Renderer
         return renderer.render(document);
     }
 
-    public boolean getHtmlFile(String rendered) throws IOException
+    public void wrHtmlStrToFile(String rendered) throws IOException
     {
         File newHtmlFile = new File("rendered.html");
         FileUtils.writeStringToFile(newHtmlFile, rendered);
-        return true;
     }
 }
