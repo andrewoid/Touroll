@@ -9,8 +9,8 @@ import java.io.IOException;
 
 public class MarkdownRenderer
 {
-    Parser parser;
-    HtmlRenderer renderer;
+    private final Parser parser;
+    private final HtmlRenderer renderer;
     public MarkdownRenderer()
     {
         parser = Parser.builder().build();
@@ -23,7 +23,7 @@ public class MarkdownRenderer
         return renderer.render(document);
     }
 
-    public void wrHtmlStrToFile(String rendered) throws IOException
+    public void writeHtmlStringIntoNewHtmlFile(String rendered) throws IOException
     {
         File newHtmlFile = new File("rendered.html");
         FileUtils.writeStringToFile(newHtmlFile, rendered);
