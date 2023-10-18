@@ -14,8 +14,8 @@ Java application to create video from multiple sources made by students at Touro
 [Markdown Cheat Sheet](https://www.markdownguide.org/cheat-sheet/)\
 [Draw.io](https://app.diagrams.net/)
 
-
 ### Students
+
 [Chana Chambre](https://github.com/chanacham) \
 [Meira Cohen](https://www.github.com/mc-student) \
 [Emmy Runge](https://github.com/emmyrunge) \
