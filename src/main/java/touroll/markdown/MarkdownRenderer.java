@@ -11,6 +11,7 @@ public class MarkdownRenderer
 {
     private final Parser parser;
     private final HtmlRenderer renderer;
+
     public MarkdownRenderer()
     {
         parser = Parser.builder().build();
