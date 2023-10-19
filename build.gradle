@@ -10,7 +10,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.commonmark:commonmark:0.17.2'
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation 'org.commonmark:commonmark:0.21.0'
     implementation 'commons-io:commons-io:2.14.0'
     implementation 'com.google.code.gson:gson:2.10.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
