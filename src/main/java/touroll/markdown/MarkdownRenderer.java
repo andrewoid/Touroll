@@ -1,10 +1,10 @@
 package touroll.markdown;
 
-import org.commonmark.node.*;
+import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
-import org.apache.commons.io.FileUtils;
-import java.io.File;
+
+import java.awt.*;
 import java.io.IOException;
 
 public class MarkdownRenderer
@@ -24,9 +24,9 @@ public class MarkdownRenderer
         return renderer.render(document);
     }
 
-    public void writeHtmlStringIntoNewHtmlFile(String rendered) throws IOException
+    public Image getImageFromMarkdown(String toRender) throws IOException
     {
-        File newHtmlFile = new File("rendered.html");
-        FileUtils.writeStringToFile(newHtmlFile, rendered);
+        HtmlToImageRenderer htmlToImageRenderer = new HtmlToImageRenderer();
+        return htmlToImageRenderer.createImageFileFromHtmlString(getHtmlRendering(toRender));
     }
 }
