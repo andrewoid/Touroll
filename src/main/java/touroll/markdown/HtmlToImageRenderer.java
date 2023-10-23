@@ -17,9 +17,8 @@ public class HtmlToImageRenderer
     {
         width = 600;
         height = 600;
-        image = GraphicsEnvironment.getLocalGraphicsEnvironment()
-                .getDefaultScreenDevice().getDefaultConfiguration()
-                .createCompatibleImage(width, height);
+        image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        //https://stackoverflow.com/questions/10391778/create-a-bufferedimage-from-file-and-make-it-type-int-argb
         graphics = image.createGraphics();
         jep = new JEditorPane("text/html", "");
         //Used https://stackoverflow.com/questions/59160419/java-convert-html-to-image
