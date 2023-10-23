@@ -3,3 +3,5 @@ out/
 .gradle/
 build/
 .DS_STORE
+hs_err_pid*.log
+out.mp4
