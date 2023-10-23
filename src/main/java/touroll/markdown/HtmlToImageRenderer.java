@@ -1,10 +1,8 @@
-package touroll.images;
+package touroll.markdown;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 
 public class HtmlToImageRenderer
@@ -13,8 +11,9 @@ public class HtmlToImageRenderer
     private final int height;
     private final BufferedImage image;
     private final Graphics graphics;
+    private final JEditorPane jep;
 
-    public HtmlToImageRenderer()
+    public HtmlToImageRenderer() throws IOException
     {
         width = 600;
         height = 600;
@@ -22,13 +21,15 @@ public class HtmlToImageRenderer
                 .getDefaultScreenDevice().getDefaultConfiguration()
                 .createCompatibleImage(width, height);
         graphics = image.createGraphics();
+        jep = new JEditorPane("text/html", "");
+        //Used https://stackoverflow.com/questions/59160419/java-convert-html-to-image
     }
 
-    public void createImageFileFromHtmlString(String html, String filePath) throws IOException
+    public Image createImageFileFromHtmlString(String html)
     {
-        JEditorPane jep = new JEditorPane("text/html", html);
+        jep.setText(html);
         jep.setSize(width, height);
         jep.print(graphics);
-        ImageIO.write(image, "png", new File(filePath));
+        return image;
     }
 }
