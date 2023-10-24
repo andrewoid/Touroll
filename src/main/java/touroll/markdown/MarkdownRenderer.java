@@ -11,11 +11,13 @@ public class MarkdownRenderer
 {
     private final Parser parser;
     private final HtmlRenderer renderer;
+    private final HtmlToImageRenderer htmlToImageRenderer;
 
-    public MarkdownRenderer()
+    public MarkdownRenderer() throws IOException
     {
         parser = Parser.builder().build();
         renderer = HtmlRenderer.builder().build();
+        htmlToImageRenderer = new HtmlToImageRenderer();
     }
 
     public String getHtmlRendering(String toRender)
@@ -26,7 +28,6 @@ public class MarkdownRenderer
 
     public Image getImageFromMarkdown(String toRender) throws IOException
     {
-        HtmlToImageRenderer htmlToImageRenderer = new HtmlToImageRenderer();
         return htmlToImageRenderer.createImageFileFromHtmlString(getHtmlRendering(toRender));
     }
 }
