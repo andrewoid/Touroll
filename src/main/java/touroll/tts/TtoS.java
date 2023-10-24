@@ -4,13 +4,11 @@ import com.sun.speech.freetts.audio.SingleFileAudioPlayer;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
-import javax.sound.sampled.LineUnavailableException;
 import javax.speech.AudioException;
 import javax.speech.Central;
 import javax.speech.EngineException;
 import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
-import java.io.IOException;
 import java.util.Locale;
 
 public class TtoS
@@ -27,7 +25,8 @@ public class TtoS
                         + ".jsapi.FreeTTSEngineCentral");
     }
 
-    public void speakAudioOfText(String textForAudio) throws EngineException, AudioException, InterruptedException, LineUnavailableException, IOException {
+    public void speakAudioOfText(String textForAudio) throws EngineException,
+            AudioException, InterruptedException {
         // Create a Synthesizer
         Synthesizer synthesizer
                 = Central.createSynthesizer(
@@ -39,8 +38,10 @@ public class TtoS
         // Resume Synthesizer
         synthesizer.resume();
 
-        SingleFileAudioPlayer singleFileAudioPlayer = new SingleFileAudioPlayer("textToFile", AudioFileFormat.Type.WAVE);
-        singleFileAudioPlayer.setAudioFormat(new AudioFormat(44100, 16, 2, true, true));
+        SingleFileAudioPlayer singleFileAudioPlayer = new SingleFileAudioPlayer(
+                "textToFile", AudioFileFormat.Type.WAVE);
+        singleFileAudioPlayer.setAudioFormat(new AudioFormat(
+                44100, 16, 2, true, true));
 
         singleFileAudioPlayer.begin(1000);
 

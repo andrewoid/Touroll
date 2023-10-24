@@ -10,18 +10,19 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TtoSTest
+public class TtoStest
 {
 
     @Test
-    public void speakAudioOfText() throws EngineException, AudioException, InterruptedException, LineUnavailableException, IOException {
+    public void speakAudioOfText() throws EngineException,
+            AudioException, InterruptedException, LineUnavailableException, IOException {
         //given
         TtoS tts = new TtoS();
 
         //when
-        tts.speakAudioOfText("Scooby Dooby Doo, where are you?\n" +
-                "We got some work to do now\n" +
-                "Scooby Dooby Doo, where are you?");
+        tts.speakAudioOfText("Scooby Dooby Doo, where are you?\n"
+                + "We got some work to do now\n"
+                + "Scooby Dooby Doo, where are you?");
         //then
 
     }
