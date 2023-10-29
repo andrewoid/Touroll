@@ -27,64 +27,27 @@ Java application to create video from multiple sources made by students at Touro
 
 Instructions to build command line prompt to covert imagines to video and then run it
 
-[Download ffmpeg onto your device] (https://amiaopensource.github.io/ffmpeg-artschool/#install-or-update-ffmpeg)
+[Download ffmpeg onto your device] (https://ffmpeg.org/)
 
-Mac/Linux
+1. Navigate to the Download button on the left
+2. Go to the Get Packages and Executable Filed
+3. Select your OS (MacOS/Windows)
 
-1. Open terminal, check if have ffmpeg installed \
-   Type ffmpeg -version and press enter
-    - If the output says command not found, you will have to install ffmpeg. Continue to step 3.
-    - If the first line of output starts with ffmpeg version 3 or lower, you will have to update your installation of
-      ffmpeg. Continue to step 3.
-    - If the first line of output starts with ffmpeg version 4, you have the version of ffmpeg required for the
-      workshop.
-      Go to Testing Your Setup.
-2. We will use homebrew to install or upgrade ffmpeg. To check you have homebre installed, type brew -version and press
-   enter.
-    - If the output says command not found, you will have to install homebrew. Copy the following command, paste it into
-      your terminal, and run it. While this command runs, you may have to enter your password or respond y several times
-      in
-      order to grant permission for the installation to complete. Then, continue to step 3
-        - /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
-    - Otherwise, continue to step 3.
-3. In terminal, type brew update && brew upgrade ffmpeg and press enter.
-    - If the output says brew not installed, type brew install ffmpeg and press enter.
+**MacOS**
+Download the
+ffmpeg-6.0.7z and follow prompts
 
-Windows
+**Windows**
+Select Windows builds by BtbN
+Select the bottom most zip file (ffmpeg-master-latest-win64-gpl.zip) and follow prompts
 
-1. Open a Pwershell window, check if you have ffmpeg installed and what version you have installed.
-   Type ffmpeg.exe -version and press enter.
-    - If the output says command not found, you will have to install ffmpeg. Continue to step 3.
-    - If the first line of output starts with ffmpeg version 3 or lower, you will have to update your installation of
-      ffmpeg. Continue to step 3
-    - If the first line of output starts with ffmpeg version 4, you have the version of ffmpeg required for the
-      workshop.
-      Go to Testing Your Setup.
-2. We will use scoop to install or upgrade ffmpeg and install ported versions of common bash programms (coreutils). To
-   check you have scoop installed type scoop and press enter.
-    - If the output says command not found, you will have to install scoop. Copy the following command, paste it into
-      your
-      Powershell window, and run it. Then, continue to step 3
-        - iwr -useb get.scoop.sh | iex
-    - If you get an error, you will need to grant permissions to run the installation script. Copy the following
-      command,
-      paste it into your Powershell window, and run it.
-        - Set-ExecutionPolicy RemoteSigned -scope CurrentUser
-    - Otherwise, continue to step 3.
-3. In the Powershell window, type scoop install ffmpeg coreutils and press enter.
-    - If ffmpeg is already installed, type scoop update ffmpeg and press enter.
+**Note**
 
-Testing Your Setup
+- To make sure ffmpeg works
+    - Go to the directory ffmpeg is saved in
+    - type ffmpeg -version in the command line / terminal and press enter.
 
-Mac/Linux
-
-1. In the terminal, type ffmpeg -version and press enter.
-
-Windows
-
-2. Type ffmpeg.exe -version and press enter.
-
-[The command to convert images to a video] (https://www.youtube.com/watch?v=thDma0lO0U8)
+[Converting images to a video] (https://www.youtube.com/watch?v=thDma0lO0U8)
 
 - Height of images need to be divisible by 2
 - Command line prompt with parems:
