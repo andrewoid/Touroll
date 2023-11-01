@@ -1,21 +1,23 @@
 package touroll.markdown;
 
-import org.commonmark.node.*;
+import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
-import org.apache.commons.io.FileUtils;
-import java.io.File;
+
+import java.awt.*;
 import java.io.IOException;
 
 public class MarkdownRenderer
 {
     private final Parser parser;
     private final HtmlRenderer renderer;
+    private final HtmlToImageRenderer htmlToImageRenderer;
 
-    public MarkdownRenderer()
+    public MarkdownRenderer() throws IOException
     {
         parser = Parser.builder().build();
         renderer = HtmlRenderer.builder().build();
+        htmlToImageRenderer = new HtmlToImageRenderer();
     }
 
     public String getHtmlRendering(String toRender)
@@ -24,9 +26,8 @@ public class MarkdownRenderer
         return renderer.render(document);
     }
 
-    public void writeHtmlStringIntoNewHtmlFile(String rendered) throws IOException
+    public Image getImageFromMarkdown(String toRender) throws IOException
     {
-        File newHtmlFile = new File("rendered.html");
-        FileUtils.writeStringToFile(newHtmlFile, rendered);
+        return htmlToImageRenderer.createImageFileFromHtmlString(getHtmlRendering(toRender));
     }
 }
