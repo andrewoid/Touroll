@@ -62,16 +62,4 @@ Select the bottom most zip file (ffmpeg-master-latest-win64-gpl.zip) and follow 
 - ffmpeg -loop 1 -i img.jpg -i audio.wav -c:v libx264 -c:a aac -b:a 192k -shortest out.mp4
     - this is to one image
 
-[Concating two video files] (https://superuser.com/questions/607383/concat-two-mp4-files-with-ffmpeg-without-losing-quality)
-
-- Concat two mp4 files with ffmpeg without losing quality - Super User
-- Create a text file and include the paths and names of each file to concatenate (or "join"). Example file,
-  input.txt:
-    - file '/home/jenia/input1.mp4'
-    - file '/home/jenia/input2.mp4'
-    - file '/home/jenia/input3.mp4'
-
-- Now you can use the concat demuxer:
-    - ffmpeg -f concat -i input.txt -codec copy output.mp4
-
 [Running a command in Java] (https://stackoverflow.com/questions/16452964/how-do-i-execute-windows-commands-in-java/16453015#16453015)
