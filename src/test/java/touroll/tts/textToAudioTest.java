@@ -10,14 +10,14 @@ import java.io.IOException;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-public class TtoStest
+public class textToAudioTest
 {
 
     @Test
     public void speakAudioOfText() throws EngineException,
             AudioException, InterruptedException, LineUnavailableException, IOException {
         //given
-        TtoS tts = new TtoS();
+        textToAudio tts = new textToAudio();
 
         //when
         tts.speakAudioOfText("Scooby Dooby Doo, where are you?\n"

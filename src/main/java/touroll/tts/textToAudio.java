@@ -11,9 +11,9 @@ import javax.speech.synthesis.Synthesizer;
 import javax.speech.synthesis.SynthesizerModeDesc;
 import java.util.Locale;
 
-public class TtoS
+public class textToAudio
 {
-    public TtoS() throws EngineException {
+    public textToAudio() throws EngineException {
         System.setProperty(
                 "freetts.voices",
                 "com.sun.speech.freetts.en.us"
@@ -44,6 +44,20 @@ public class TtoS
                 44100, 16, 2, true, true));
 
         singleFileAudioPlayer.begin(1000);
+
+        SynthesizerModeDesc desc = (SynthesizerModeDesc) synthesizer.getEngineModeDesc();
+        javax.speech.synthesis.Voice[] jsapiVoices = desc.getVoices();
+        javax.speech.synthesis.Voice jsapiVoice = jsapiVoices[0];
+
+        /* Non-JSAPI modification of voice audio player
+         */
+        if (jsapiVoice instanceof com.sun.speech.freetts.jsapi.FreeTTSVoice)
+        {
+            com.sun.speech.freetts.Voice freettsVoice =
+                    ((com.sun.speech.freetts.jsapi.FreeTTSVoice) jsapiVoice).getVoice();
+            freettsVoice.setAudioPlayer(singleFileAudioPlayer);
+        }
+
 
         // Speaks the given text until the queue is empty.
         synthesizer.speakPlainText(textForAudio, null);
