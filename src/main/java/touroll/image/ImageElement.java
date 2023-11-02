@@ -20,4 +20,9 @@ public class ImageElement implements VideoElement {
     public void prepare() throws IOException {
         output = render.prepare(source);
     }
+
+    @Override
+    public File getOutputFile() {
+        return output;
+    }
 }
