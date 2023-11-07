@@ -31,7 +31,6 @@ public class GuiFrame extends JFrame {
         //top button to add element
         JButton element = new JButton("Add element");
         buttonPanel.add(element, BorderLayout.NORTH);
-        element.addActionListener();
 
         //panel to set the width and height
         JPanel dimensionPanel = new JPanel(new GridLayout(2,3));
