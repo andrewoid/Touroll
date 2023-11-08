@@ -12,7 +12,7 @@ public class TextToAudioTest
     public void textFileToAudioFile() throws IOException {
         //given
         TextToAudio tts = new TextToAudio();
-        String audioFileName = "whatever";
+        String audioFileName = "allStarAudio";
         File file = new File("src/main/java/touroll/tts/allStarLyrics.txt");
 
         //when
