@@ -11,7 +11,7 @@ public class GuiFrame extends JFrame {
 
 
     public GuiFrame() {
-    //main GUI frame
+        //main GUI frame
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         setContentPane(mainPanel);
@@ -33,7 +33,7 @@ public class GuiFrame extends JFrame {
         buttonPanel.add(element, BorderLayout.NORTH);
 
         //panel to set the width and height
-        JPanel dimensionPanel = new JPanel(new GridLayout(2,3));
+        JPanel dimensionPanel = new JPanel(new GridLayout(2, 3));
         JLabel width = new JLabel("width");
         JTextField widthText = new JTextField();
         JButton submitWidth = new JButton("submit");
@@ -47,7 +47,7 @@ public class GuiFrame extends JFrame {
         dimensionPanel.add(height);
         dimensionPanel.add(heightText);
         dimensionPanel.add(submitHeight);
-        buttonPanel.add(dimensionPanel,BorderLayout.CENTER);
+        buttonPanel.add(dimensionPanel, BorderLayout.CENTER);
 
         //button to generate video
         JButton generate = new JButton("Generate video");
