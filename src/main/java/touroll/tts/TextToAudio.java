@@ -13,13 +13,13 @@ import java.util.Scanner;
 
 public class TextToAudio
 {
-    public void fileToString(File filepath) throws IOException {
+    public void fileToString(File filepath, String audioFileName) throws IOException {
 
         String fileContent = readTextFile(filepath);
 
         Voice voice = getVoice();
 
-        saveAudio(voice, fileContent, "allStarLyricsAudio");
+        saveAudio(voice, fileContent, audioFileName);
     }
 
     public String readTextFile(File filePath) throws IOException {
@@ -35,7 +35,7 @@ public class TextToAudio
         return fileContent.toString();
     }
 
-    public Voice getVoice() {
+    private Voice getVoice() {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
 
         VoiceManager manager = VoiceManager.getInstance();
