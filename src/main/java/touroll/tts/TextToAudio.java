@@ -1,69 +1,60 @@
 package touroll.tts;
 
+import com.sun.speech.freetts.Voice;
+import com.sun.speech.freetts.VoiceManager;
+import com.sun.speech.freetts.audio.AudioPlayer;
 import com.sun.speech.freetts.audio.SingleFileAudioPlayer;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
-import javax.speech.AudioException;
-import javax.speech.Central;
-import javax.speech.EngineException;
-import javax.speech.synthesis.Synthesizer;
-import javax.speech.synthesis.SynthesizerModeDesc;
-import java.util.Locale;
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class TextToAudio
 {
-    public TextToAudio() throws EngineException {
-        System.setProperty(
-                "freetts.voices",
-                "com.sun.speech.freetts.en.us"
-                        + ".cmu_us_kal.KevinVoiceDirectory");
-        //other voices
+    public void fileToString(File filepath) throws IOException {
 
-        // Register Engine
-        Central.registerEngineCentral(
-                "com.sun.speech.freetts"
-                        + ".jsapi.FreeTTSEngineCentral");
+        String fileContent = readTextFile(filepath);
+
+        Voice voice = getVoice();
+
+        saveAudio(voice, fileContent, "allStarLyricsAudio");
     }
 
-    public void speakAudioOfText(String textForAudio) throws EngineException,
-            AudioException, InterruptedException {
-        // Create a Synthesizer
-        Synthesizer synthesizer
-                = Central.createSynthesizer(
-                new SynthesizerModeDesc(Locale.US));
+    public String readTextFile(File filePath) throws IOException {
+        StringBuilder fileContent = new StringBuilder();
 
-        // Allocate synthesizer
-        synthesizer.allocate();
+        try (Scanner scanner = new Scanner(new File(filePath.toURI())))
+        {
+            while (scanner.hasNextLine())
+            {
+                fileContent.append(scanner.nextLine()).append('\n');
+            }
+        }
+        return fileContent.toString();
+    }
 
-        // Resume Synthesizer
-        synthesizer.resume();
+    public Voice getVoice() {
+        System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
 
-        SingleFileAudioPlayer singleFileAudioPlayer = new SingleFileAudioPlayer(
-                "textToFile", AudioFileFormat.Type.WAVE);
-        singleFileAudioPlayer.setAudioFormat(new AudioFormat(
+        VoiceManager manager = VoiceManager.getInstance();
+        return manager.getVoice("kevin16");
+        //kevin16, alan, kevin
+    }
+
+    public void saveAudio(Voice voice, String text, String outputFilePath) {
+
+        AudioPlayer audioPlayer = new SingleFileAudioPlayer(outputFilePath, AudioFileFormat.Type.WAVE);
+
+        audioPlayer.setAudioFormat(new AudioFormat(
                 44100, 16, 2, true, true));
 
-        singleFileAudioPlayer.begin(1000);
+        voice.setAudioPlayer(audioPlayer);
 
-        SynthesizerModeDesc desc = (SynthesizerModeDesc) synthesizer.getEngineModeDesc();
-        javax.speech.synthesis.Voice[] jsapiVoices = desc.getVoices();
-        javax.speech.synthesis.Voice jsapiVoice = jsapiVoices[0];
-
-        if (jsapiVoice instanceof com.sun.speech.freetts.jsapi.FreeTTSVoice)
-        {
-            com.sun.speech.freetts.Voice freettsVoice =
-                    ((com.sun.speech.freetts.jsapi.FreeTTSVoice) jsapiVoice).getVoice();
-            freettsVoice.setAudioPlayer(singleFileAudioPlayer);
-        }
-
-        // Speaks the given text until the queue is empty.
-        synthesizer.speakPlainText(textForAudio, null);
-        synthesizer.waitEngineState(Synthesizer.QUEUE_EMPTY);
-
-        singleFileAudioPlayer.close();
-
-        // Deallocate the Synthesizer.
-        synthesizer.deallocate();
+        voice.allocate();
+        voice.speak(text);
+        voice.deallocate();
+        audioPlayer.close();
     }
 }

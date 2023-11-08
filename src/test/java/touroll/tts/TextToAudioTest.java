@@ -4,20 +4,21 @@ import org.junit.jupiter.api.Test;
 
 import javax.speech.AudioException;
 import javax.speech.EngineException;
+import java.io.File;
+import java.io.IOException;
 
 public class TextToAudioTest
 {
 
     @Test
-    public void speakAudioOfText() throws EngineException,
-            AudioException, InterruptedException {
+    public void textFileToAudioFile() throws IOException, AudioException, EngineException, InterruptedException {
         //given
         TextToAudio tts = new TextToAudio();
+        File file = new File("/Users/michalrunge/IdeaProjects/Touroll/src/main/java/touroll/tts/allStarLyrics.txt");
 
         //when
-        tts.speakAudioOfText("Scooby Dooby Doo, where are you?\n"
-                + "We got some work to do now\n"
-                + "Scooby Dooby Doo, where are you?");
+        tts.fileToString(file);
+
         //then
 
     }
