@@ -2,22 +2,22 @@ package touroll.tts;
 
 import org.junit.jupiter.api.Test;
 
-import javax.speech.AudioException;
-import javax.speech.EngineException;
+import java.io.File;
+import java.io.IOException;
 
 public class TextToAudioTest
 {
 
     @Test
-    public void speakAudioOfText() throws EngineException,
-            AudioException, InterruptedException {
+    public void textFileToAudioFile() throws IOException {
         //given
         TextToAudio tts = new TextToAudio();
+        String audioFileName = "allStarAudio";
+        File file = new File("src/test/resources/allStarLyrics.txt");
 
         //when
-        tts.speakAudioOfText("Scooby Dooby Doo, where are you?\n"
-                + "We got some work to do now\n"
-                + "Scooby Dooby Doo, where are you?");
+        tts.fileToString(file, audioFileName);
+
         //then
 
     }

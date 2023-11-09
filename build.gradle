@@ -14,7 +14,7 @@ dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     implementation 'org.commonmark:commonmark:0.21.0'
     implementation 'com.github.manevolent:ffmpeg4j:5.1.2-1.5.8-4'
-    implementation 'commons-io:commons-io:2.14.0'
+    implementation 'commons-io:commons-io:2.15.0'
     implementation 'com.google.code.gson:gson:2.10.1'
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
