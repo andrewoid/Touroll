@@ -13,7 +13,7 @@ public class TextToAudioTest
         //given
         TextToAudio tts = new TextToAudio();
         String audioFileName = "allStarAudio";
-        File file = new File("src/test/java/touroll/tts/allStarLyrics.txt");
+        File file = new File("src/test/resources/allStarLyrics.txt");
 
         //when
         tts.fileToString(file, audioFileName);
