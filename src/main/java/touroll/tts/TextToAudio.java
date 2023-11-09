@@ -4,12 +4,13 @@ import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
 import com.sun.speech.freetts.audio.AudioPlayer;
 import com.sun.speech.freetts.audio.SingleFileAudioPlayer;
+import org.apache.commons.io.IOUtils;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class TextToAudio
 {
@@ -23,16 +24,8 @@ public class TextToAudio
     }
 
     public String readTextFile(File filePath) throws IOException {
-        StringBuilder fileContent = new StringBuilder();
-
-        try (Scanner scanner = new Scanner(new File(filePath.toURI())))
-        {
-            while (scanner.hasNextLine())
-            {
-                fileContent.append(scanner.nextLine()).append('\n');
-            }
-        }
-        return fileContent.toString();
+        FileReader reader = new FileReader(filePath);
+        return IOUtils.toString(reader);
     }
 
     private Voice getVoice() {
