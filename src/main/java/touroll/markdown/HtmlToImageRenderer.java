@@ -34,7 +34,7 @@ public class HtmlToImageRenderer
     //Why? To maintain transparent background
     //For example: ImageIO.write(bufferedImage, "png", file);
 
-    public Image createImageFileFromHtmlString(String html)
+    public BufferedImage createImageFileFromHtmlString(String html)
     {
         jep.setText(html);
         jep.setSize(width, height);
