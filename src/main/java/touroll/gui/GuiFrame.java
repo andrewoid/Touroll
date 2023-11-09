@@ -2,9 +2,15 @@ package touroll.gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.File;
+
+//import static jdk.internal.org.jline.utils.InfoCmp.Capability.newline;
 
 public class GuiFrame extends JFrame {
     private JButton element = new JButton();
+    final JFileChooser fc = new JFileChooser();
 
 
     final ListModel<String> listModel = new DefaultListModel<>();
@@ -36,6 +42,25 @@ public class GuiFrame extends JFrame {
         element = new JButton("Add Element");
         element.setPreferredSize(new Dimension(200, 65));
         buttonPanel.add(element, BorderLayout.NORTH);
+        JTextArea log = new JTextArea();
+        element.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //open button action
+                if (e.getSource() == element) {
+                    int returnVal = fc.showOpenDialog(GuiFrame.this);
+
+                    if (returnVal == JFileChooser.APPROVE_OPTION) {
+                        File file = fc.getSelectedFile();
+
+                        log.append("Opening: " + file.getName() + ".");
+                    } else {
+                        log.append("Open command cancelled by user.");
+                    }
+                }
+            }
+        });
+
 
         //south button to generate video
         JButton generate = new JButton("Generate video");
