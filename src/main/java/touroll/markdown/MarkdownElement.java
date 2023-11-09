@@ -7,27 +7,32 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
-public class MarkdownElement implements VideoElement {
+public class MarkdownElement implements VideoElement
+{
 
     private MarkdownRenderer renderer;
     private File source;
     private File output;
 
     public MarkdownElement(MarkdownRenderer renderer,
-                           File source) {
+                           File source)
+    {
         this.renderer = renderer;
         this.source = source;
     }
 
+    //test
     @Override
-    public void prepare() throws IOException {
+    public void prepare() throws IOException
+    {
         BufferedImage image = renderer.getImageFromFile(source);
         output = new File(source.getPath() + ".png");
         ImageIO.write(image, "png", output);
     }
 
     @Override
-    public File getOutputFile() {
+    public File getOutputFile()
+    {
         return output;
     }
 }
