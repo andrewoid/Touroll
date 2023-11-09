@@ -16,14 +16,15 @@ class ImageElementTest {
         File source = new File("src/test/resources/IHaveADream/img1.jpg");
         ImageRenderer render = mock();
         doReturn(source).when(render).prepare(source);
+        ImageElement element = new ImageElement(source, render);
+
 
 
         //when
-        ImageElement element = new ImageElement(source, render);
         element.prepare();
-        File output = element.getOutputFile();
 
         //then
+        File output = element.getOutputFile();
         assertEquals(output, source);
     }
 }
