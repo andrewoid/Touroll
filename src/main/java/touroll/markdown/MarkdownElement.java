@@ -10,8 +10,8 @@ import java.io.IOException;
 public class MarkdownElement implements VideoElement
 {
 
-    private MarkdownRenderer renderer;
-    private File source;
+    private final MarkdownRenderer renderer;
+    private final File source;
     private File output;
 
     public MarkdownElement(MarkdownRenderer renderer,

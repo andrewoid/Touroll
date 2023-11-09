@@ -24,6 +24,9 @@ public class MarkdownRenderer
     //complete this method
     public BufferedImage getImageFromFile(File file)
     {
+        //get buf. img. from md file
+        
+        //Filereader
         return null;
     }
 
@@ -37,4 +40,6 @@ public class MarkdownRenderer
     {
         return htmlToImageRenderer.createImageFileFromHtmlString(getHtmlRendering(toRender));
     }
+    //test to get image that size != 0
+    //headless exception - test may not run on server
 }
