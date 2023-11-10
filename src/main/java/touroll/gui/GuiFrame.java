@@ -42,22 +42,19 @@ public class GuiFrame extends JFrame {
         element = new JButton("Add Element");
         element.setPreferredSize(new Dimension(200, 65));
         buttonPanel.add(element, BorderLayout.NORTH);
-        JTextArea log = new JTextArea();
         element.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //open button action
-                if (e.getSource() == element) {
-                    int returnVal = fc.showOpenDialog(GuiFrame.this);
 
-                    if (returnVal == JFileChooser.APPROVE_OPTION) {
-                        File file = fc.getSelectedFile();
+                //Allow multiple files to be selected
+                //Limit what can be selected to be txt files, md files, images
+                int returnVal = fc.showOpenDialog(GuiFrame.this);
 
-                        log.append("Opening: " + file.getName() + ".");
-                    } else {
-                        log.append("Open command cancelled by user.");
-                    }
+                if (returnVal == JFileChooser.APPROVE_OPTION) {
+                    File file = fc.getSelectedFile();
+                    //Add file to the video
                 }
+
             }
         });
 
