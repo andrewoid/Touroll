@@ -1,6 +1,8 @@
 package touroll.gui;
 
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.io.File;
 
 public class GuiController {
     JButton elementButton;
@@ -12,8 +14,15 @@ public class GuiController {
         this.fc = fc;
     }
 
-    public String addElement() {
-        return null;
+    public void addElement() {
+        //Allow multiple files to be selected
+        //Limit what can be selected to be txt files, md files, images
+        //            int returnVal = fc.showOpenDialog(GuiFrame.this);
+        //
+        //            if (returnVal == JFileChooser.APPROVE_OPTION) {
+        //                File file = fc.getSelectedFile();
+        //                //Add file to the video
+        //            }
     }
 
     public String generateVideo() {

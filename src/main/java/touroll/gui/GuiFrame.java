@@ -14,11 +14,13 @@ public class GuiFrame extends JFrame {
 
 
     final ListModel<String> listModel = new DefaultListModel<>();
-
+    private GuiController controller;
 
     public GuiFrame() {
         final JScrollPane scrollPane;
         final JList<String> list;
+
+        controller = new GuiController(element, fc);
 
         //main GUI frame
         JPanel mainPanel = new JPanel();
@@ -42,20 +44,11 @@ public class GuiFrame extends JFrame {
         element = new JButton("Add Element");
         element.setPreferredSize(new Dimension(200, 65));
         buttonPanel.add(element, BorderLayout.NORTH);
-        element.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-                //Allow multiple files to be selected
-                //Limit what can be selected to be txt files, md files, images
-                int returnVal = fc.showOpenDialog(GuiFrame.this);
-
-                if (returnVal == JFileChooser.APPROVE_OPTION) {
-                    File file = fc.getSelectedFile();
-                    //Add file to the video
-                }
-
-            }
+        //add the action listener to the add element button
+        element.addActionListener(e ->{
+            mainPanel.requestFocus();
+            controller.addElement();
         });
 
 
