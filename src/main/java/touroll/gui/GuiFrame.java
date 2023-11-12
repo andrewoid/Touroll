@@ -46,7 +46,7 @@ public class GuiFrame extends JFrame {
         buttonPanel.add(element, BorderLayout.NORTH);
 
         //add the action listener to the add element button
-        element.addActionListener(e ->{
+        element.addActionListener(e -> {
             mainPanel.requestFocus();
             controller.addElement();
         });
