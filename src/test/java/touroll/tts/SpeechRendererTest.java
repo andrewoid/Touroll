@@ -17,7 +17,7 @@ public class SpeechRendererTest
         File file = new File("src/test/java/touroll/tts/allStarLyrics.txt");
 
         //when
-        renderer.SpeechRenderer(file, audioFileName);
+        renderer.speechRenderer(file, audioFileName);
 
         //then
     }

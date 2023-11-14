@@ -19,7 +19,7 @@ public class SpeechElement implements VideoElement
 
     @Override
     public void prepare() throws IOException {
-        renderer.SpeechRenderer(source, output + ".wav");
+        renderer.speechRenderer(source, output + ".wav");
     }
 
     @Override

@@ -14,7 +14,7 @@ import java.io.IOException;
 
 public class SpeechRenderer
 {
-    public void SpeechRenderer(File filepath, String audioFileName) throws IOException {
+    public void speechRenderer(File filepath, String audioFileName) throws IOException {
         String fileContent = readTextFile(filepath);
         Voice voice = getVoice();
         saveAudio(voice, fileContent, audioFileName);
