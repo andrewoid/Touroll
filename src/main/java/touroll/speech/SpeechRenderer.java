@@ -1,4 +1,4 @@
-package touroll.tts;
+package touroll.speech;
 
 import com.sun.speech.freetts.Voice;
 import com.sun.speech.freetts.VoiceManager;
@@ -12,14 +12,11 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class TextToAudio
+public class SpeechRenderer
 {
-    public void fileToString(File filepath, String audioFileName) throws IOException {
-
+    public void SpeechRenderer(File filepath, String audioFileName) throws IOException {
         String fileContent = readTextFile(filepath);
-
         Voice voice = getVoice();
-
         saveAudio(voice, fileContent, audioFileName);
     }
 
@@ -30,21 +27,16 @@ public class TextToAudio
 
     private Voice getVoice() {
         System.setProperty("freetts.voices", "com.sun.speech.freetts.en.us.cmu_us_kal.KevinVoiceDirectory");
-
         VoiceManager manager = VoiceManager.getInstance();
         return manager.getVoice("kevin16");
-        //kevin16, alan, kevin
     }
 
     public void saveAudio(Voice voice, String text, String outputFilePath) {
 
         AudioPlayer audioPlayer = new SingleFileAudioPlayer(outputFilePath, AudioFileFormat.Type.WAVE);
-
         audioPlayer.setAudioFormat(new AudioFormat(
                 44100, 16, 2, true, true));
-
         voice.setAudioPlayer(audioPlayer);
-
         voice.allocate();
         voice.speak(text);
         voice.deallocate();
