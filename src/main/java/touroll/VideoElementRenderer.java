@@ -12,18 +12,17 @@ public class VideoElementRenderer {
 
     public List<String> render(List<VideoElement> list) throws IOException {
 
-        List<String> retval =  new ArrayList<>();
-
-        File imageFile = new File("src/test/resources/IHaveADream/imageInput.txt");
-        File audioFile =new File("src/test/resources/IHaveADream/audioInput.txt");
-        File outputPart1 = new File("src/test/resources/IHaveADream/outputPart1.mv4");
-        File output = new File("src/test/resources/IHaveADream/output.mv4");
+        final File imageFile = new File("src/test/resources/IHaveADream/imageInput.txt");
+        final File audioFile = new File("src/test/resources/IHaveADream/audioInput.txt");
+        final File outputPart1 = new File("src/test/resources/IHaveADream/outputPart1.mv4");
+        final File output = new File("src/test/resources/IHaveADream/output.mv4");
 
         PrintWriter writer1 = new PrintWriter(imageFile);
         PrintWriter writer2 = new PrintWriter(audioFile);
 
         list.forEach(element -> {
-            if(element instanceof ImageElement) {
+            if (element instanceof ImageElement)
+            {
                 writer1.print("file '");
                 writer1.print(element.getOutputFile());
                 writer1.println("'");
@@ -38,13 +37,15 @@ public class VideoElementRenderer {
         writer1.close();
         writer2.close();
 
-        String imageTOvideo = "ffmpeg -f concat -i " + imageFile
+        String imageVideo = "ffmpeg -f concat -i " + imageFile
                 + " -c:v libx264 -r 1/5 -pix_fmt yuv420p " + outputPart1;
         //dont have a speach element yet
         /* String outputWithAudio = "ffmpeg  -i " +outputPart1 +"-f concat -i " +audioFile
                 +" -c:v libx264 -pix_fmt yuv420p " +output; */
 
-        retval.add(imageTOvideo);
+        List<String> retval =  new ArrayList<>();
+
+        retval.add(imageVideo);
         //dont have a speach element yet
         //retval.add(outputWithAudio);
 
