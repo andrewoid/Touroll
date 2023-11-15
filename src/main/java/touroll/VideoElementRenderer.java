@@ -38,8 +38,8 @@ public class VideoElementRenderer {
         writer1.close();
         writer2.close();
 
-        String imageTOvideo = "ffmpeg -f concat -i " +imageFile
-                +" -c:v libx264 -r 1/5 -pix_fmt yuv420p " +outputPart1;
+        String imageTOvideo = "ffmpeg -f concat -i " + imageFile
+                + " -c:v libx264 -r 1/5 -pix_fmt yuv420p " + outputPart1;
         //dont have a speach element yet
         /* String outputWithAudio = "ffmpeg  -i " +outputPart1 +"-f concat -i " +audioFile
                 +" -c:v libx264 -pix_fmt yuv420p " +output; */
