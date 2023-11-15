@@ -9,18 +9,20 @@ import java.io.File;
 //import static jdk.internal.org.jline.utils.InfoCmp.Capability.newline;
 
 public class GuiFrame extends JFrame {
-    private JButton element = new JButton();
-    final JFileChooser fc = new JFileChooser();
-
 
     final ListModel<String> listModel = new DefaultListModel<>();
-    private GuiController controller;
+    final JList<String> list;
+
+    JButton element = new JButton();
+    private final GuiController controller;
+    private JFileChooser fc;
+    private JPanel buttonPanel;
 
     public GuiFrame() {
-        final JScrollPane scrollPane;
-        final JList<String> list;
+        //I couldnt figure out how to pass this frame into the controller
+        fc = new JFileChooser();
+        controller = new GuiController(element, fc, this);
 
-        controller = new GuiController(element, fc);
 
         //main GUI frame
         JPanel mainPanel = new JPanel();
@@ -30,16 +32,16 @@ public class GuiFrame extends JFrame {
         setTitle("Touroll");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
 
+
         //add the list to the main panel
         list = new JList<>(listModel);
-        scrollPane = new JScrollPane(list);
+        JScrollPane scrollPane = new JScrollPane(list);
 
 
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
         //panel to add length and width labels and buttons
-        JPanel buttonPanel = new JPanel(new BorderLayout());
-
+        buttonPanel = new JPanel(new BorderLayout());
         //north button to add element
         element = new JButton("Add Element");
         element.setPreferredSize(new Dimension(200, 65));
@@ -77,7 +79,5 @@ public class GuiFrame extends JFrame {
 
         mainPanel.add(buttonPanel, BorderLayout.EAST);
 
-
     }
-
 }
