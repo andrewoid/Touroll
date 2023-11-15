@@ -12,10 +12,8 @@ public class VideoElementRenderer {
 
     public List<String> render(List<VideoElement> list) throws IOException {
 
-        final File imageFile = new File("src/test/resources/IHaveADream/imageInput.txt");
-        final File audioFile = new File("src/test/resources/IHaveADream/audioInput.txt");
-        final File outputPart1 = new File("src/test/resources/IHaveADream/outputPart1.mv4");
-        final File output = new File("src/test/resources/IHaveADream/output.mv4");
+        final File imageFile = new File("imageInput.txt");
+        final File audioFile = new File("audioInput.txt");
 
         PrintWriter writer1 = new PrintWriter(imageFile);
         PrintWriter writer2 = new PrintWriter(audioFile);
@@ -37,11 +35,10 @@ public class VideoElementRenderer {
         writer1.close();
         writer2.close();
 
-        String imageVideo = "ffmpeg -f concat -i " + imageFile
-                + " -c:v libx264 -r 1/5 -pix_fmt yuv420p " + outputPart1;
+        String imageVideo = "ffmpeg -f concat -i imageInput.txt -c:v libx264 -r 1/5 -pix_fmt yuv420p outputPart1.mp4";
         //dont have a speach element yet
-        /* String outputWithAudio = "ffmpeg  -i " +outputPart1 +"-f concat -i " +audioFile
-                +" -c:v libx264 -pix_fmt yuv420p " +output; */
+        /* String outputWithAudio = "ffmpeg  -i outputPart1,mp4 -f concat -i audioFile.txt
+                 -c:v libx264 -pix_fmt yuv420p output.mp4"; */
 
         List<String> retval =  new ArrayList<>();
 

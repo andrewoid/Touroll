@@ -31,10 +31,10 @@ class VideoElementRendererTest {
 
         //then
 
-        assertTrue(Files.isRegularFile(Path.of("src/test/resources/IHaveADream/imageInput.txt")));
-        assertTrue(Files.isRegularFile(Path.of("src/test/resources/IHaveADream/audioInput.txt")));
+        assertTrue(Files.isRegularFile(Path.of("imageInput.txt")));
+        assertTrue(Files.isRegularFile(Path.of("audioInput.txt")));
 
-        assertEquals(ffmpegCommands.get(0), "ffmpeg -f concat -i src\\test\\resources\\IHaveADream\\imageInput.txt "
-                + "-c:v libx264 -r 1/5 -pix_fmt yuv420p src\\test\\resources\\IHaveADream\\outputPart1.mv4");
+        assertEquals(ffmpegCommands.get(0), "ffmpeg -f concat -i imageInput.txt "
+                + "-c:v libx264 -r 1/5 -pix_fmt yuv420p outputPart1.mp4");
     }
 }
