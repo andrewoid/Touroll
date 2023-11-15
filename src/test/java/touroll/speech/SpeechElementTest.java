@@ -1,8 +1,6 @@
-package touroll.tts;
+package touroll.speech;
 
 import org.junit.jupiter.api.Test;
-import touroll.speech.SpeechElement;
-import touroll.speech.SpeechRenderer;
 
 import java.io.File;
 import java.io.IOException;
@@ -17,8 +15,8 @@ public class SpeechElementTest
         //given
         SpeechRenderer render = mock();
         File source = new File("src/test/java/touroll/tts/allStarLyrics.txt");
-        File output = new File("allStarAudio" + ".wav");
-        SpeechElement element = new SpeechElement(render, source, output);
+        File output = new File(source.getPath() + ".wav");
+        SpeechElement element = new SpeechElement(render, source);
 
         //when
         element.prepare();

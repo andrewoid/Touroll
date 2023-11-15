@@ -1,7 +1,6 @@
-package touroll.tts;
+package touroll.speech;
 
 import org.junit.jupiter.api.Test;
-import touroll.speech.SpeechRenderer;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,12 +11,12 @@ public class SpeechRendererTest
     @Test
     public void textFileToAudioFile() throws IOException {
         //given
-        SpeechRenderer renderer = new SpeechRenderer();
+        SpeechRenderer render = new SpeechRenderer();
         String audioFileName = "allStarAudio";
-        File file = new File("src/test/java/touroll/tts/allStarLyrics.txt");
+        File file = new File("src/test/java/touroll/speech/allStarLyrics");
 
         //when
-        renderer.speechRenderer(file, audioFileName);
+        render.speechRenderer(file, audioFileName);
 
         //then
     }

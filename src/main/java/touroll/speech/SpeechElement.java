@@ -7,19 +7,19 @@ import java.io.IOException;
 
 public class SpeechElement implements VideoElement
 {
-    private SpeechRenderer renderer;
-    private File source;
+    private final SpeechRenderer render;
+    private final File source;
     private File output;
 
-    public SpeechElement(SpeechRenderer renderer, File source, File output) {
-        this.renderer = renderer;
+    public SpeechElement(SpeechRenderer renderer, File source) {
+        this.render = renderer;
         this.source = source;
-        this.output = output;
     }
 
     @Override
     public void prepare() throws IOException {
-        renderer.speechRenderer(source, output + ".wav");
+        render.speechRenderer(source, output + ".wav");
+        output = new File(source.getPath() + ".wav");
     }
 
     @Override
