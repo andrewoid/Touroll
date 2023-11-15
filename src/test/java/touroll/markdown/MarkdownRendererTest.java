@@ -10,12 +10,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MarkdownRendererTest
 {
-    //headless exception - test may not run on server
     String toRender = "What is *this*?";
 
     @Test
     public void getHtmlRendering() throws IOException
     {
+
         MarkdownRenderer markdownRenderer = new MarkdownRenderer();
         String actual = markdownRenderer.getHtmlRendering(toRender);
         String expected = "<p>What is <em>this</em>?</p>\n";

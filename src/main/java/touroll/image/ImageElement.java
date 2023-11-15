@@ -7,9 +7,9 @@ import java.io.IOException;
 
 public class ImageElement implements VideoElement {
 
-    File source;
-    File output;
-    ImageRenderer render;
+    private File source;
+    private File output;
+    private ImageRenderer render;
 
     public ImageElement(File source, ImageRenderer render) {
         this.source = source;
