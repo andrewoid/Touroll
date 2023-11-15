@@ -40,13 +40,13 @@ public class VideoElementRenderer {
         /* String outputWithAudio = "ffmpeg  -i outputPart1,mp4 -f concat -i audioFile.txt
                  -c:v libx264 -pix_fmt yuv420p output.mp4"; */
 
-        List<String> retval =  new ArrayList<>();
+        List<String> ffmpegCommands =  new ArrayList<>();
 
-        retval.add(imageVideo);
+        ffmpegCommands.add(imageVideo);
         //dont have a speach element yet
         //retval.add(outputWithAudio);
 
-        return retval;
+        return ffmpegCommands;
     }
 }
 

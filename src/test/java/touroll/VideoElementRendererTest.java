@@ -24,9 +24,9 @@ class VideoElementRendererTest {
         doReturn(source).when(element).getOutputFile();
         ArrayList<VideoElement> videoElements = new ArrayList<>();
         videoElements.add(element);
+        VideoElementRenderer videoElementRenderer = new VideoElementRenderer();
 
         //when
-        VideoElementRenderer videoElementRenderer = new VideoElementRenderer();
         ArrayList<String> ffmpegCommands = (ArrayList<String>) videoElementRenderer.render(videoElements);
 
         //then
