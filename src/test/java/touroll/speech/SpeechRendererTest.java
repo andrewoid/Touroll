@@ -13,7 +13,7 @@ public class SpeechRendererTest
         //given
         SpeechRenderer render = new SpeechRenderer();
         String audioFileName = "allStarAudio";
-        File file = new File("src/test/java/touroll/speech/allStarLyrics");
+        File file = new File("src/test/java/touroll/speech/allStarLyrics.txt");
 
         //when
         render.speechRenderer(file, audioFileName);
