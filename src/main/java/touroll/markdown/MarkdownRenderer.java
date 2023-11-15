@@ -26,12 +26,9 @@ public class MarkdownRenderer
     public BufferedImage getImageFromMarkdownFile(File file) throws IOException
     {
         String path = file.getAbsolutePath();
-        String[] parts = path.split("\\.");
-        //use FileTypeDetector instead??
-
         BufferedImage image = null;
 
-        if (parts[1].equals("md"))
+        if (path.endsWith("md"))
         {
             FileReader reader = new FileReader(file);
             String markdown = IOUtils.toString(reader);
