@@ -14,6 +14,7 @@ public class SpeechElementTest
     @Test
     void getOutputFile() throws IOException {
         //given
+        //given
         SpeechRenderer render = mock();
         File source = new File("src/test/java/touroll/tts/allStarLyrics.txt");
         SpeechElement element = new SpeechElement(render, source);
@@ -23,8 +24,8 @@ public class SpeechElementTest
         element.prepare();
 
         //then
-        verify(render);
         File output = element.getOutputFile();
+        verify(render).speechRenderer(source, output.toString());
         assertEquals(output.toString(), "src/test/java/touroll/tts/allStarLyrics.txt.wav");
     }
 }

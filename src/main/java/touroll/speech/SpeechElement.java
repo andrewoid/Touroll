@@ -18,8 +18,8 @@ public class SpeechElement implements VideoElement
 
     @Override
     public void prepare() throws IOException {
-        render.speechRenderer(source, output + ".wav");
         output = new File(source.getPath() + ".wav");
+        render.speechRenderer(source, output.toString());
     }
 
     @Override
