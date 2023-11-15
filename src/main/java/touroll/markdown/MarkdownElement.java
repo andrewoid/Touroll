@@ -10,8 +10,8 @@ import java.io.IOException;
 public class MarkdownElement implements VideoElement
 {
 
-    private MarkdownRenderer renderer;
-    private File source;
+    private final MarkdownRenderer renderer;
+    private final File source;
     private File output;
 
     public MarkdownElement(MarkdownRenderer renderer,
@@ -25,7 +25,7 @@ public class MarkdownElement implements VideoElement
     @Override
     public void prepare() throws IOException
     {
-        BufferedImage image = renderer.getImageFromFile(source);
+        BufferedImage image = renderer.getImageFromMarkdownFile(source);
         output = new File(source.getPath() + ".png");
         ImageIO.write(image, "png", output);
     }
