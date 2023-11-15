@@ -25,7 +25,7 @@ public class MarkdownElement implements VideoElement
     @Override
     public void prepare() throws IOException
     {
-        BufferedImage image = renderer.getImageFromFile(source);
+        BufferedImage image = renderer.getImageFromMarkdownFile(source);
         output = new File(source.getPath() + ".png");
         ImageIO.write(image, "png", output);
     }

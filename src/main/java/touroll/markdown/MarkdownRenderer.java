@@ -1,11 +1,13 @@
 package touroll.markdown;
 
+import org.apache.commons.io.IOUtils;
 import org.commonmark.node.Node;
 import org.commonmark.parser.Parser;
 import org.commonmark.renderer.html.HtmlRenderer;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 
 public class MarkdownRenderer
@@ -21,13 +23,27 @@ public class MarkdownRenderer
         htmlToImageRenderer = new HtmlToImageRenderer();
     }
 
-    //complete this method
-    public BufferedImage getImageFromFile(File file)
+    public BufferedImage getImageFromMarkdownFile(File file) throws IOException
     {
-        //get buf. img. from md file
-        
-        //Filereader
-        return null;
+        String path = file.getAbsolutePath();
+        String[] parts = path.split("\\.");
+        //use FileTypeDetector instead??
+
+        BufferedImage image = null;
+
+        if (parts[1].equals("md"))
+        {
+            FileReader reader = new FileReader(file);
+            String markdown = IOUtils.toString(reader);
+            image = getImageFromMarkdownString(markdown);
+        }
+        //instead throw exception if wrong file type?
+        return image;
+    }
+
+    public BufferedImage getImageFromMarkdownString(String toRender) throws IOException
+    {
+        return htmlToImageRenderer.createImageFileFromHtmlString(getHtmlRendering(toRender));
     }
 
     public String getHtmlRendering(String toRender)
@@ -35,11 +51,4 @@ public class MarkdownRenderer
         Node document = parser.parse(toRender);
         return renderer.render(document);
     }
-
-    public BufferedImage getImageFromMarkdown(String toRender) throws IOException
-    {
-        return htmlToImageRenderer.createImageFileFromHtmlString(getHtmlRendering(toRender));
-    }
-    //test to get image that size != 0
-    //headless exception - test may not run on server
 }
