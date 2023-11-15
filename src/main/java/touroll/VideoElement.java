@@ -8,9 +8,7 @@ import java.io.IOException;
  * Can be Image, Audio, TextToMarkdown, TextToSpeech
  */
 public interface VideoElement {
-
     void prepare() throws IOException;
 
     File getOutputFile();
-
 }

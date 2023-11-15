@@ -3,4 +3,6 @@ out/
 .gradle/
 build/
 .DS_STORE
+audioInput.txt
+imageInput.txt
 *.wav
