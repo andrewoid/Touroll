@@ -30,9 +30,11 @@ public class GuiController {
         int returnVal = fileChooser.showOpenDialog(gui);
 
         if (returnVal == JFileChooser.APPROVE_OPTION) {
-            File file = fileChooser.getSelectedFile();
+            File [] selectedFile = fileChooser.getSelectedFiles();
             //Add file to the video
-            defaultListModel.addElement(file);
+            for (File file:selectedFile) {
+                defaultListModel.addElement(file);
+            }
         }
     }
 
