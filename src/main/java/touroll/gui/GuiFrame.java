@@ -1,10 +1,7 @@
 package touroll.gui;
 
 import javax.swing.*;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 //import static jdk.internal.org.jline.utils.InfoCmp.Capability.newline;
@@ -14,7 +11,7 @@ public class GuiFrame extends JFrame {
     private final JList<File> list;
     private final DefaultListModel<File> listModel;
     private final GuiController controller;
-    private final JFileChooser fc = new JFileChooser();
+    private final JFileChooser fileChooser = new JFileChooser();
 
     public GuiFrame() {
         //main GUI frame
@@ -27,7 +24,7 @@ public class GuiFrame extends JFrame {
         list = new JList<>(listModel);
         JScrollPane scrollPane = new JScrollPane(list);
 
-        controller = new GuiController(listModel, list, fc, this);
+        controller = new GuiController(listModel, fileChooser, this);
 
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
