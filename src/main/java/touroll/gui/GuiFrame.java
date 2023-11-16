@@ -11,13 +11,12 @@ import java.io.File;
 
 public class GuiFrame extends JFrame {
 
-    private final JList<File> list ;
+    private final JList<File> list;
     private final DefaultListModel<File> listModel;
     private final GuiController controller;
 
     public GuiFrame() {
         JFileChooser fc = new JFileChooser();
-
 
 
         //main GUI frame
