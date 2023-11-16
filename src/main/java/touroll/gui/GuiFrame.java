@@ -14,19 +14,13 @@ public class GuiFrame extends JFrame {
     private final JList<File> list;
     private final DefaultListModel<File> listModel;
     private final GuiController controller;
+    private final JFileChooser fc = new JFileChooser();
 
     public GuiFrame() {
-        JFileChooser fc = new JFileChooser();
-
-
         //main GUI frame
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         setContentPane(mainPanel);
-        setSize(700, 500);
-        setTitle("Touroll");
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-
 
         //add the list to the main panel
         listModel = new DefaultListModel<>();
@@ -50,7 +44,6 @@ public class GuiFrame extends JFrame {
             controller.addElement();
         });
 
-
         //south button to generate video
         JButton generate = new JButton("Generate video");
         generate.setPreferredSize(new Dimension(200, 65));
@@ -63,7 +56,6 @@ public class GuiFrame extends JFrame {
         JLabel width = new JLabel("Width");
         JTextField widthText = new JTextField();
 
-
         JLabel height = new JLabel("Height");
         JTextField heightText = new JTextField();
 
@@ -73,8 +65,9 @@ public class GuiFrame extends JFrame {
         sizingPanel.add(heightText);
         buttonPanel.add(sizingPanel, BorderLayout.CENTER);
 
-
         mainPanel.add(buttonPanel, BorderLayout.EAST);
-
+        setSize(700, 500);
+        setTitle("Touroll");
+        setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 }

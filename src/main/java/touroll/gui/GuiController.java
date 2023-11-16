@@ -12,7 +12,10 @@ public class GuiController {
     private final JList<File> fileList;
     private final DefaultListModel<File> defaultListModel;
 
-    public GuiController(DefaultListModel<File> defaultListModel, JList<File> fileList, JFileChooser fc, GuiFrame guiFrame) {
+    public GuiController(DefaultListModel<File> defaultListModel,
+                         JList<File> fileList,
+                         JFileChooser fc,
+                         GuiFrame guiFrame) {
         this.defaultListModel = defaultListModel;
         this.fileList = fileList;
         this.fc = fc;
@@ -25,7 +28,8 @@ public class GuiController {
         fc.setMultiSelectionEnabled(true);
 
         // Limit what can be selected to be txt files, md files, images
-        FileNameExtensionFilter fileFilter = new FileNameExtensionFilter("Text Files (.txt, .md), Images", "txt", "md", "jpg", "jpeg", "png", "gif");
+        FileNameExtensionFilter fileFilter = new FileNameExtensionFilter(
+                "Text Files (.txt, .md), " + "Images", "txt", "md", "jpg", "jpeg", "png", "gif");
         fc.setFileFilter(fileFilter);
 
         int returnVal = fc.showOpenDialog(gui);
