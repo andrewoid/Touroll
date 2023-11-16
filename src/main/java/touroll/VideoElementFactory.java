@@ -1,10 +1,7 @@
 package touroll;
 
-import touroll.image.ImageElement;
 import touroll.image.ImageRenderer;
-import touroll.markdown.MarkdownElement;
 import touroll.markdown.MarkdownRenderer;
-import touroll.speech.SpeechElement;
 import touroll.speech.SpeechRenderer;
 
 import java.io.File;
@@ -16,18 +13,20 @@ import java.util.stream.Collectors;
  */
 public class VideoElementFactory {
 
-    private final ImageRenderer imageRenderer;
-    private final MarkdownRenderer markdownRenderer;
-    private final SpeechRenderer speechRenderer;
+    private List<Renderer> renderers;
 
     public VideoElementFactory(
             ImageRenderer imageRenderer,
-            MarkdownRenderer markdownRenderer,
-            SpeechRenderer speechRenderer
+            SpeechRenderer speechRenderer,
+            MarkdownRenderer markdownRenderer
     ) {
-        this.imageRenderer = imageRenderer;
-        this.markdownRenderer = markdownRenderer;
-        this.speechRenderer = speechRenderer;
+        this(List.of(imageRenderer, markdownRenderer, speechRenderer));
+    }
+
+    public VideoElementFactory(
+            List<Renderer> renderers
+    ) {
+        this.renderers = renderers;
     }
 
     public List<VideoElement> fromFiles(List<File> files) {
@@ -37,16 +36,13 @@ public class VideoElementFactory {
                     // .txt file text to speech
                     // .jpg, .png, .jpeg ... image
 
-                    String fileName = file.getName();
-                    if (fileName.endsWith(".md")) {
-                        return new MarkdownElement(markdownRenderer, file);
-                    } else if (fileName.endsWith(".txt")) {
-                        return new SpeechElement(speechRenderer, file);
-                    } else if (fileName.endsWith(".png") || fileName.endsWith(".jpg") || fileName.endsWith(".jpeg")) {
-                        return new ImageElement(file, imageRenderer);
-                    } else {
-                        throw new IllegalStateException(fileName + " is not recognized");
+                    for (Renderer renderer : renderers) {
+                        if (renderer.isFileType(file)) {
+                            return renderer.fromFile(file);
+                        }
                     }
+
+                    throw new IllegalStateException(file + " is not recognized");
                 })
                 .collect(Collectors.toList());
     }
