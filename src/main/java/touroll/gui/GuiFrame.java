@@ -1,6 +1,7 @@
 package touroll.gui;
 
 import javax.swing.*;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -10,18 +11,13 @@ import java.io.File;
 
 public class GuiFrame extends JFrame {
 
-    final ListModel<String> listModel = new DefaultListModel<>();
-    final JList<String> list;
-
-    JButton element = new JButton();
+    private final JList<File> list ;
+    private final DefaultListModel<File> listModel;
     private final GuiController controller;
-    private JFileChooser fc;
-    private JPanel buttonPanel;
 
     public GuiFrame() {
-        //I couldnt figure out how to pass this frame into the controller
-        fc = new JFileChooser();
-        controller = new GuiController(element, fc, this);
+        JFileChooser fc = new JFileChooser();
+
 
 
         //main GUI frame
@@ -34,16 +30,18 @@ public class GuiFrame extends JFrame {
 
 
         //add the list to the main panel
+        listModel = new DefaultListModel<>();
         list = new JList<>(listModel);
         JScrollPane scrollPane = new JScrollPane(list);
 
+        controller = new GuiController(listModel, list, fc, this);
 
         mainPanel.add(scrollPane, BorderLayout.CENTER);
 
         //panel to add length and width labels and buttons
-        buttonPanel = new JPanel(new BorderLayout());
+        JPanel buttonPanel = new JPanel(new BorderLayout());
         //north button to add element
-        element = new JButton("Add Element");
+        JButton element = new JButton("Add Element");
         element.setPreferredSize(new Dimension(200, 65));
         buttonPanel.add(element, BorderLayout.NORTH);
 
