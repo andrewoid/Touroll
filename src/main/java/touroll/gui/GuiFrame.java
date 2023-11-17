@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 
-//import static jdk.internal.org.jline.utils.InfoCmp.Capability.newline;
 
 public class GuiFrame extends JFrame {
 
@@ -14,7 +13,6 @@ public class GuiFrame extends JFrame {
     private final JFileChooser fileChooser = new JFileChooser();
 
     public GuiFrame() {
-        //main GUI frame
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BorderLayout());
         setContentPane(mainPanel);
@@ -37,7 +35,6 @@ public class GuiFrame extends JFrame {
 
         //add the action listener to the add element button
         element.addActionListener(e -> {
-            mainPanel.requestFocus();
             controller.addElement();
         });
 
