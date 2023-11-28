@@ -5,6 +5,9 @@ import com.sun.speech.freetts.VoiceManager;
 import com.sun.speech.freetts.audio.AudioPlayer;
 import com.sun.speech.freetts.audio.SingleFileAudioPlayer;
 import org.apache.commons.io.IOUtils;
+import org.jetbrains.annotations.Nullable;
+import touroll.Renderer;
+import touroll.VideoElement;
 
 import javax.sound.sampled.AudioFileFormat;
 import javax.sound.sampled.AudioFormat;
@@ -12,8 +15,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 
-public class SpeechRenderer
-{
+public class SpeechRenderer implements Renderer {
     public void speechRenderer(File filepath, String audioFileName) throws IOException {
         String fileContent = readTextFile(filepath);
         Voice voice = getVoice();
@@ -41,5 +43,15 @@ public class SpeechRenderer
         voice.speak(text);
         voice.deallocate();
         audioPlayer.close();
+    }
+
+    @Override
+    public boolean isFileType(File file) {
+        return file.getName().endsWith(".txt");
+    }
+
+    @Override
+    public @Nullable VideoElement fromFile(File file) {
+        return new SpeechElement(this, file);
     }
 }
